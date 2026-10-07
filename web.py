@@ -3,13 +3,13 @@ import json
 from datetime import datetime, date, timedelta
 from waktu import cari_jadwal_kumpul, load_data
 
-st.set_page_config(page_title="Hangout Schedule Finder", page_icon="📅", layout="centered")
+st.set_page_config(page_title="infokan KK", page_icon="📅", layout="centered")
 
 def save_data(data):
     with open('jadwal_sekolah.json', 'w') as file:
         json.dump(data, file, indent=2)
 
-st.title("🎉 Hangout Match Finder")
+st.title("🎉 infokan KK")
 st.caption("Aplikasi Pencari Waktu Luang Ber-4 (Nay, Sean, Vian, & Rey)")
 
 data = load_data()
@@ -43,13 +43,13 @@ else:
 
     tab1, tab2, tab3, tab4 = st.tabs(["📅 Kalender Status", "⚽ Les / Extra", "🚫 Ijin / Acara", "🏫 Libur Sekolah"])
 
-    # --- TAB 1: KALENDER STATUS (ADA WARNA BIRU) ---
+    # --- TAB 1: KALENDER STATUS (WAKTU) ---
     with tab1:
-        st.subheader("📅 Status Ketersediaan Kumpul")
+        st.subheader("📅 waktu")
         st.markdown("""
         **Keterangan Warna Kalender:**
         * 🔴 **Merah:** < 2 Jam / Pasti Ada Halangan
-        * 🔵 **Biru:** **Belum Pasti / Ragu-Ragu** (Ada acara/jadwal yang belum fix)
+        * 🔵 **Biru:** **sikon** (Ada acara/jadwal yang belum fix)
         * 🟠 **Orange:** 2 s/d < 4 Jam Free
         * 🟢 **Hijau:** 4 s/d < 6 Jam Free
         * ⚪ **Putih:** 6 s/d 12+ Jam Free (Libur / Bebas)
@@ -71,7 +71,7 @@ else:
                 kat = hasil["kategori"]
                 
                 if kat == "biru":
-                    st.info(f"🔵 **{hasil['hari']}, {tgl_str}** → **BELUM PASTI / RAGU-RAGU** ({hasil['alasan']})")
+                    st.info(f"🔵 **{hasil['hari']}, {tgl_str}** → **sikon** ({hasil['alasan']})")
                 elif kat == "putih":
                     st.write(f"⚪ **{hasil['hari']}, {tgl_str}** → **LELUASA ({hasil['durasi_jam']} Jam Free)** | ⏰ {hasil['jam_mulai']} - {hasil['jam_selesai']} WITA")
                 elif kat == "hijau":
@@ -132,15 +132,14 @@ else:
                                 save_data(data)
                                 st.rerun()
 
-    # --- TAB 3: IJIN / ACARA (DENGAN OPSI RAGU-RAGU / BIRU) ---
+    # --- TAB 3: IJIN / ACARA ---
     with tab3:
         st.subheader("Kelola Halangan / Acara Tanggal Khusus")
         st.write(f"**Tambah Catatan Tanggal ({current_user}):**")
         tgl_ijin = st.date_input("Pilih Tanggal:", min_value=date.today(), key="ijin_tgl")
         keterangan_ijin = st.text_input("Keterangan:")
         
-        # Pilihan status apakah ragu-ragu
-        is_tentative = st.checkbox("❓ Status Belum Pasti (Ragu-Ragu / Biru)")
+        is_tentative = st.checkbox("❓ Status sikon (Ragu-Ragu / Biru)")
         
         if st.button("Simpan Catatan Tanggal"):
             if keterangan_ijin:
@@ -164,7 +163,7 @@ else:
             else:
                 for idx, item in enumerate(acaras):
                     col1, col2 = st.columns([4, 1])
-                    status_text = "🔵 [BELUM PASTI]" if item.get("tentative", False) else "🔴 [FIX HALANGAN]"
+                    status_text = "🔵 [SIKON]" if item.get("tentative", False) else "🔴 [FIX HALANGAN]"
                     with col1:
                         st.write(f"• **{item['tanggal']}**: {item['keterangan']} {status_text}")
                     with col2:
