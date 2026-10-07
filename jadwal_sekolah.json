@@ -1,0 +1,77 @@
+{
+  "sekolah": {
+    "Sekolah sanjose": {
+      "jam_pulang": {
+        "Senin": "15:15",
+        "Selasa": "15:15",
+        "Rabu": "15:15",
+        "Kamis": "14:05",
+        "Jumat": "14:45",
+        "Sabtu": "00:00",
+        "Minggu": "00:00"
+      },
+      "tanggal_libur": []
+    },
+    "Sekolah forsma": {
+      "jam_pulang": {
+        "Senin": "14:30",
+        "Selasa": "14:30",
+        "Rabu": "14:30",
+        "Kamis": "14:30",
+        "Jumat": "13:30",
+        "Sabtu": "00:00",
+        "Minggu": "00:00"
+      },
+      "tanggal_libur": []
+    }
+  },
+  "users": {
+    "Nay": {
+      "pin": "0909",
+      "sekolah": "Sekolah sanjose"
+    },
+    "Sean": {
+      "pin": "6789",
+      "sekolah": "Sekolah sanjose"
+    },
+    "Vian": {
+      "pin": "5656",
+      "sekolah": "Sekolah sanjose"
+    },
+    "Rey": {
+      "pin": "6767",
+      "sekolah": "Sekolah forsma"
+    }
+  },
+  "kegiatan_rutin": {
+    "Nay": [
+      {
+        "nama_kegiatan": "extra it club",
+        "hari": "Senin",
+        "jam_mulai": "15:15",
+        "jam_selesai": "16:30"
+      },
+      {
+        "nama_kegiatan": "ngocok",
+        "hari": "Sabtu",
+        "jam_mulai": "09:00",
+        "jam_selesai": "13:00"
+      }
+    ],
+    "Sean": [],
+    "Vian": [],
+    "Rey": []
+  },
+  "ijin_rutin": {
+    "Nay": [],
+    "Sean": [],
+    "Vian": [],
+    "Rey": []
+  },
+  "acara_manual": {
+    "Nay": [],
+    "Sean": [],
+    "Vian": [],
+    "Rey": []
+  }
+}
